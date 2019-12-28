@@ -43,7 +43,7 @@ export default {
             let data = JSON.parse(localStorage.getItem('data'))
             
             let response = await axios({
-                url: `http://localhost:4040/transaction/${data.dni}`,
+                url: `http://localhost:4040/client/transaction/${data.dni}`,
                 method: 'GET'
             })
 

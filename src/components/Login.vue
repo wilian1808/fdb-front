@@ -25,7 +25,7 @@ export default {
     methods: {
         async getData() {
             let respuesta = await axios({
-                url: 'http://localhost:4040/login',
+                url: 'http://localhost:4040/client/login',
                 method: 'POST',
                 data: JSON.stringify({
                     dni: parseInt(this.dni),

@@ -42,8 +42,10 @@ export default {
         async getData() {
             let data = JSON.parse(localStorage.getItem('data'))
 
+            console.log(data)
+
             let response = await axios({
-                url: `http://localhost:4040/account/${data.dni}`,
+                url: `http://localhost:4040/client/account/${data.dni}`,
                 method: 'GET'
             })
 

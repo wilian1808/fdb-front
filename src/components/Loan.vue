@@ -46,7 +46,7 @@ export default {
             let data = JSON.parse(localStorage.getItem('data'))
 
             let response = await axios({
-                url: `http://localhost:4040/loan/${data.dni}`,
+                url: `http://localhost:4040/client/loan/${data.dni}`,
                 method: 'GET'
             })
             if (response.data.code == 200) {

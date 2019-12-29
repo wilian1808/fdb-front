@@ -18,8 +18,8 @@ export default {
     name: 'login',
     data() {
         return {
-            dni: '',
-            codigo: ''
+            dni: '72241122',
+            codigo: '8545'
         }
     },
     methods: {

@@ -16,7 +16,20 @@ const routes = [
     {
         path: '/profile',
         name: 'profile',
-        component: () => import(/* webpackChunkName: "account" */'../views/Profile.vue'),
+        component: () => import(/* webpackChunkName: "account" */ '../views/Profile.vue'),
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+    },
+    {
+        path: '/operation',
+        name: 'operation',
+        component: () => import(/* webpackChunkName: "operation" */ '../views/Operation.vue'),
         meta: {
             auth: true
         }
@@ -36,7 +49,12 @@ router.beforeEach((to, from, next) => {
     if (auth && !user) {
         next('/login')
     } else if (!auth && user) {
-        next('/profile')
+        if (JSON.parse(localStorage.getItem('data')).codigo.length > 4) {
+            next('/operation')
+        } else {
+            console.log('es cliente')
+            next('/profile')
+        }
     } else {
         next()
     }
